@@ -3,6 +3,8 @@ import cors from 'cors'
 import 'dotenv/config'
 
 import mongoose from "mongoose";
+import userRouter from './routes/userRoutes.js';
+
 
 
 const connectDB = async ()=>{
@@ -23,6 +25,7 @@ app.use(express.json());
 
 await connectDB();
 
+app.use('/api/user',userRouter)
 
 app.get('/',(req,res)=>{
     res.send('Hello World')
